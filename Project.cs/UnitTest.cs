@@ -6,13 +6,27 @@ namespace ExceptionTest
     public class UnitTest1
     {
         [TestMethod]
-        public void GivenSadMoodShow()
+        [DataRow ("I am in sad mood")]
+        public void GivenSadMoodShow(string message)
         {
             string expected = "SAD";
-            string message = "I am in sad mood";
             MoodAnalyse mood = new MoodAnalyse(message);
             var result = mood.analyseMood(message);
             Assert.AreEqual(expected, result);
         }
+<<<<<<< HEAD
      }
+=======
+        [TestMethod]
+        [DataRow(null)]
+        public void GivenNullMoodShow(string message)
+        {
+            string expected = "HAPPY";
+            MoodAnalyse mood = new MoodAnalyse(message);
+            var result = mood.analyseMood(message);
+            Assert.AreEqual(expected, result);
+        }
+    }
+>>>>>>> UC2-NullException
 }
+
