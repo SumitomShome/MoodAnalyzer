@@ -14,5 +14,14 @@ namespace ExceptionTest
             var result = mood.analyseMood(message);
             Assert.AreEqual(expected, result);
         }
+        [TestMethod]
+        public void GivenHappyMoodShow()
+        {
+            string expected = "HAPPY";
+            string message = "I am in happy mood";
+            MoodAnalyse mood = new MoodAnalyse(message);
+            var result = mood.analyseMood(message);
+            Assert.AreEqual(expected, result);
+        }
     }
 }
