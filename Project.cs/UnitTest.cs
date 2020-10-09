@@ -14,9 +14,6 @@ namespace ExceptionTest
             var result = mood.analyseMood(message);
             Assert.AreEqual(expected, result);
         }
-<<<<<<< HEAD
-     }
-=======
         [TestMethod]
         [DataRow(null)]
         public void GivenNullMoodShow(string message)
@@ -27,6 +24,5 @@ namespace ExceptionTest
             Assert.AreEqual(expected, result);
         }
     }
->>>>>>> UC2-NullException
 }
 
