@@ -15,14 +15,32 @@ namespace ExceptionTest
             Assert.AreEqual(expected, result);
         }
         [TestMethod]
-        [DataRow(null)]
-        public void GivenNullMoodShow(string message)
+        public void Given_NULL_Mood_Should_Throw_MoodAnalysisException()
         {
-            string expected = "HAPPY";
-            MoodAnalyse mood = new MoodAnalyse(message);
-            var result = mood.analyseMood(message);
-            Assert.AreEqual(expected, result);
+            try
+            {
+                string message = null;
+                MoodAnalyse moodAnalyse = new MoodAnalyse(message);
+                string mood = moodAnalyse.analyseMoodLive();
+            }
+            catch (MoodAnalyzerCustomException e)
+            {
+                Assert.AreEqual("Mood should not be null", e.Message);
+            }
+        }
+        [TestMethod]
+        public void Given_Empty_Mood_Should_Throw_MoodAnalysisException()
+        {
+            try
+            {
+                string message = "";
+                MoodAnalyse moodAnalyse = new MoodAnalyse(message);
+                string mood = moodAnalyse.analyseMoodLive();
+            }
+            catch (MoodAnalyzerCustomException e)
+            {
+                Assert.AreEqual("Mood should not be empty", e.Message);
+            }
         }
     }
 }
-
