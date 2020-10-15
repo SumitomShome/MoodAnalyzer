@@ -14,7 +14,7 @@ namespace MoodAnalyser
         public string analyseMood()
         {
             try
-            {   //s="";
+            {
                 if (this.message.Equals(string.Empty))
                 {
                     throw new MoodAnalyzerCustomException(MoodAnalyzerCustomException.ExceptionType.EMPTY_MESSAGE, "Mood should not be empty");
