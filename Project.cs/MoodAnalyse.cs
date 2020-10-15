@@ -11,24 +11,10 @@ namespace MoodAnalyser
             this.message = message;
         }
 
-        public string analyseMood(string message)
+        public string analyseMood()
         {
             try
-            {
-                if (message.Contains("sad"))
-                    return "SAD";
-                else
-                    return "HAPPY";
-            }
-            catch
-            {
-                return "HAPPY";
-            }
-        }
-        public string analyseMoodLive()
-        {
-            try
-            {
+            {   //s="";
                 if (this.message.Equals(string.Empty))
                 {
                     throw new MoodAnalyzerCustomException(MoodAnalyzerCustomException.ExceptionType.EMPTY_MESSAGE, "Mood should not be empty");
@@ -45,5 +31,3 @@ namespace MoodAnalyser
         }
     }
 }
-
-

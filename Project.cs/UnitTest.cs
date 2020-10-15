@@ -1,46 +1,24 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MoodAnalyser;
-namespace ExceptionTest
+namespace MoodAnalyser
 {
     [TestClass]
     public class UnitTest1
     {
         [TestMethod]
-        [DataRow ("I am in sad mood")]
-        public void GivenSadMoodShow(string message)
+        public void GivenMoodAnalyseClassName_ShouldReturnMoodAnalyseObject()
         {
-            string expected = "SAD";
-            MoodAnalyse mood = new MoodAnalyse(message);
-            var result = mood.analyseMood(message);
-            Assert.AreEqual(expected, result);
+            string message = null;
+            object expected = new MoodAnalyse(message);
+            object obj = MoodAnalyserFactory.CreateMoodAnalyser("MoodAnalyser.MoodAnalyse", "MoodAnalyse");
+            expected.Equals(obj);
         }
         [TestMethod]
-        public void Given_NULL_Mood_Should_Throw_MoodAnalysisException()
+        public void GivenMoodAnalyseClassName_ShouldReturnMoodAnalyseObject_UsingParameterizedConstructor()
         {
-            try
-            {
-                string message = null;
-                MoodAnalyse moodAnalyse = new MoodAnalyse(message);
-                string mood = moodAnalyse.analyseMoodLive();
-            }
-            catch (MoodAnalyzerCustomException e)
-            {
-                Assert.AreEqual("Mood should not be null", e.Message);
-            }
-        }
-        [TestMethod]
-        public void Given_Empty_Mood_Should_Throw_MoodAnalysisException()
-        {
-            try
-            {
-                string message = "";
-                MoodAnalyse moodAnalyse = new MoodAnalyse(message);
-                string mood = moodAnalyse.analyseMoodLive();
-            }
-            catch (MoodAnalyzerCustomException e)
-            {
-                Assert.AreEqual("Mood should not be empty", e.Message);
-            }
+            object expected = new MoodAnalyse("HAPPY");
+            object obj = MoodAnalyserFactory.CreateMoodAnalyseUsingParameterizedConstructor("MoodAnalyser.MoodAnalyse", "MoodAnalyse", "SAD");
+            expected.Equals(obj);
         }
     }
 }
