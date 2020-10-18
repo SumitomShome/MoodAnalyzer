@@ -20,6 +20,7 @@ namespace MoodAnalyser
             object obj = MoodAnalyserFactory.CreateMoodAnalyseUsingParameterizedConstructor("MoodAnalyser.MoodAnalyse", "MoodAnalyse", "SAD");
             expected.Equals(obj);
         }
+	[TestMethod]
 	public void GivenNullMoodShouldThrowMoodAnalysisException()
         {
             try
